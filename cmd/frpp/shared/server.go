@@ -32,11 +32,18 @@ type runServerParam struct {
 func runServer(param runServerParam) {
 	var (
 		c            = context.Background()
-		clientID     = param.AppInstance.GetConfig().Client.ID
-		clientSecret = param.AppInstance.GetConfig().Client.Secret
 		appInstance  = param.AppInstance
 		ctx          = param.AppCtx
 	)
+
+	// 使用 defaultServerConfig（master 模式），如果没有则使用 AppInstance 的配置（standalone server 模式）
+	cfg := param.Cfg
+	if cfg.Client.ID == "" {
+		cfg = appInstance.GetConfig()
+	}
+
+	clientID := cfg.Client.ID
+	clientSecret := cfg.Client.Secret
 
 	logger.Logger(c).Infof("start to init server")
 
