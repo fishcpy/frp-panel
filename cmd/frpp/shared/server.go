@@ -26,7 +26,7 @@ type runServerParam struct {
 	AppCtx           *app.Context
 	ServerApiService app.Service    `name:"serverApiService"`
 	TaskManager      watcher.Client `name:"serverTaskManager"`
-	Cfg              conf.Config
+	Cfg              conf.Config    `name:"defaultServerConfig" optional:"true"`
 }
 
 func runServer(param runServerParam) {
