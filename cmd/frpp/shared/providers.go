@@ -261,10 +261,12 @@ func NewDefaultServerConfig(ctx *app.Context) conf.Config {
 	tmpCfg := appInstance.GetConfig()
 	tmpCfg.Client.ID = defaultServer.ServerID
 	tmpCfg.Client.Secret = defaultServer.ConnectSecret
-	// 修复：为内部 server 返回使用本地回环地址的独立配置副本
-	// 不修改全局 appInstance 配置，避免影响外部客户端的 CLIENT_RPC_URL/CLIENT_API_URL
+	// 修复：为内部 server 设置使用本地回环地址
 	tmpCfg.Client.RPCUrl = fmt.Sprintf("grpc://127.0.0.1:%d", tmpCfg.Master.RPCPort)
 	tmpCfg.Client.APIUrl = fmt.Sprintf("http://127.0.0.1:%d", tmpCfg.Master.APIPort)
+
+	// 同时更新全局配置，确保 appInstance.GetMasterCli() 等使用正确的配置
+	appInstance.SetConfig(tmpCfg)
 
 	return tmpCfg
 }

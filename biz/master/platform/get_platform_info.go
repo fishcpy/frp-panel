@@ -2,8 +2,10 @@ package platform
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/VaalaCat/frp-panel/common"
+	"github.com/VaalaCat/frp-panel/defs"
 	"github.com/VaalaCat/frp-panel/pb"
 	"github.com/VaalaCat/frp-panel/services/app"
 	"github.com/VaalaCat/frp-panel/services/dao"
@@ -51,8 +53,10 @@ func getPlatformInfo(appInstance app.Application, c *gin.Context) (*pb.GetPlatfo
 
 	unconfiguredClients := totalClients - configuredClients
 
-	clientRPCUrl := appInstance.GetConfig().Client.RPCUrl
-	clientAPIUrl := appInstance.GetConfig().Client.APIUrl
+	// 从环境变量读取外部客户端 URL，而不是从 appInstance.GetConfig()
+	// 避免被内部 server 的本地地址配置覆盖
+	clientRPCUrl := os.Getenv(defs.EnvClientRPCUrl)
+	clientAPIUrl := os.Getenv(defs.EnvClientAPIUrl)
 
 	if len(clientRPCUrl) == 0 {
 		clientRPCUrl = fmt.Sprintf("grpc://%s:%d", appInstance.GetConfig().Master.RPCHost, appInstance.GetConfig().Master.RPCPort)
