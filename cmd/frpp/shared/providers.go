@@ -3,6 +3,7 @@ package shared
 import (
 	"context"
 	"crypto/tls"
+	"fmt"
 	"net"
 	"net/http"
 	"os"
@@ -260,9 +261,9 @@ func NewDefaultServerConfig(ctx *app.Context) conf.Config {
 	tmpCfg := appInstance.GetConfig()
 	tmpCfg.Client.ID = defaultServer.ServerID
 	tmpCfg.Client.Secret = defaultServer.ConnectSecret
-	// 修复：内部 server 必须使用本地 RPC/API，而非外部 CLIENT_RPC_URL/CLIENT_API_URL
-	tmpCfg.Client.RPCUrl = ""
-	tmpCfg.Client.APIUrl = ""
+	// 修复：内部 server 必须使用本地回环地址，避免使用外部主机名或 IPv6 地址
+	tmpCfg.Client.RPCUrl = fmt.Sprintf("grpc://127.0.0.1:%d", tmpCfg.Master.RPCPort)
+	tmpCfg.Client.APIUrl = fmt.Sprintf("http://127.0.0.1:%d", tmpCfg.Master.APIPort)
 	appInstance.SetConfig(tmpCfg)
 
 	return tmpCfg
