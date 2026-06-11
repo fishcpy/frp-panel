@@ -162,9 +162,10 @@ type ConnInfo struct {
 type Scheme string
 
 const (
-	GRPC Scheme = "grpc"
-	WS   Scheme = "ws"
-	WSS  Scheme = "wss"
+	GRPC  Scheme = "grpc"
+	GRPCS Scheme = "grpcs"
+	WS    Scheme = "ws"
+	WSS   Scheme = "wss"
 )
 
 func GetRPCConnInfo(cfg Config) ConnInfo {

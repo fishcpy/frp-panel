@@ -50,8 +50,8 @@ func newMasterCli(appInstance app.Application) pb.MasterClient {
 	opt := []grpc.DialOption{}
 
 	switch connInfo.Scheme {
-	case conf.GRPC:
-		if appInstance.GetConfig().Client.TLSRpc {
+	case conf.GRPC, conf.GRPCS:
+		if connInfo.Scheme == conf.GRPCS || appInstance.GetConfig().Client.TLSRpc {
 			logger.Logger(ctx).Infof("use tls rpc")
 			opt = append(opt, grpc.WithTransportCredentials(appInstance.GetRPCCred()))
 		} else {
