@@ -260,6 +260,9 @@ func NewDefaultServerConfig(ctx *app.Context) conf.Config {
 	tmpCfg := appInstance.GetConfig()
 	tmpCfg.Client.ID = defaultServer.ServerID
 	tmpCfg.Client.Secret = defaultServer.ConnectSecret
+	// 修复：内部 server 必须使用本地 RPC/API，而非外部 CLIENT_RPC_URL/CLIENT_API_URL
+	tmpCfg.Client.RPCUrl = ""
+	tmpCfg.Client.APIUrl = ""
 	appInstance.SetConfig(tmpCfg)
 
 	return tmpCfg
