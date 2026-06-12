@@ -264,11 +264,6 @@ export const ClientInfo = ({ client }: { client: ClientTableSchema }) => {
         {`${clientsStatus?.clients[client.id].ping}ms,${t(trans(clientsStatus?.clients[client.id]))}`}
       </Badge>
       {clientsStatus?.clients[client.id].version && <ClientDetail clientStatus={clientsStatus?.clients[client.id]} />}
-      {NeedUpgrade(clientsStatus?.clients[client.id].version) && (
-        <Badge variant={'destructive'} className={`p-2 border font-mono w-fit text-nowrap rounded-full h-6`}>
-          {t('client.need_upgrade')}
-        </Badge>
-      )}
       {client.originClient.ephemeral && (
         <Badge variant={'secondary'} className={`p-2 border font-mono w-fit text-nowrap rounded-full h-6`}>
           {t('client.temp_node')}
