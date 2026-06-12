@@ -35,11 +35,11 @@ export const ClientSelector: React.FC<ClientSelectorProps> = ({ clientID, setCli
       placeholder={t('selector.client.placeholder')}
       dataList={
         clients !== undefined
-          ? clients.map((client) => ({
+          ? clients.map((client: Client) => ({
               value: client.id || '',
               label: client.id || '',
             }))
-          : clientList?.clients.map((client) => ({
+          : clientList?.clients.map((client: Client) => ({
               value: client.id || '',
               label: client.id || '',
             })) || []
