@@ -11,7 +11,6 @@ import (
 type VersionConfig struct {
 	Version             string `yaml:"version"`
 	EnableUpgradeCheck  bool   `yaml:"enable_upgrade_check"`
-	LatestVersion       string `yaml:"latest_version"`
 }
 
 var versionConfig *VersionConfig
@@ -27,9 +26,8 @@ func LoadVersionConfig(configPath string) error {
 		// 如果配置文件不存在，使用默认配置
 		if os.IsNotExist(err) {
 			versionConfig = &VersionConfig{
-				Version:             "",
+				Version:             "v0.1.0",
 				EnableUpgradeCheck:  true,
-				LatestVersion:       "v0.1.0",
 			}
 			return nil
 		}
@@ -54,9 +52,8 @@ func GetVersionConfig() *VersionConfig {
 	if versionConfig == nil {
 		// 如果还是 nil，返回默认配置
 		return &VersionConfig{
-			Version:             "",
+			Version:             "v0.1.0",
 			EnableUpgradeCheck:  true,
-			LatestVersion:       "v0.1.0",
 		}
 	}
 	return versionConfig

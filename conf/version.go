@@ -53,10 +53,9 @@ func (v *VersionInfo) ToProto() *pb.ClientVersion {
 }
 
 func GetVersion() *VersionInfo {
-	version := gitVersion
-
-	// 如果配置文件中设置了自定义版本，则使用配置文件的版本
+	// 优先使用配置文件中的版本号，否则使用构建时注入的版本
 	config := GetVersionConfig()
+	version := gitVersion
 	if config != nil && config.Version != "" {
 		version = config.Version
 	}
@@ -72,6 +71,15 @@ func GetVersion() *VersionInfo {
 	}
 }
 
+// GetSystemVersion 获取系统配置的版本号（用于升级检查）
+func GetSystemVersion() string {
+	config := GetVersionConfig()
+	if config == nil || config.Version == "" {
+		return gitVersion
+	}
+	return config.Version
+}
+
 // NeedUpgrade 检查是否需要升级
 func NeedUpgrade(currentVersion string) bool {
 	config := GetVersionConfig()
@@ -79,20 +87,16 @@ func NeedUpgrade(currentVersion string) bool {
 		return false
 	}
 
-	// 简单的版本比较：如果当前版本不等于最新版本，则提示升级
-	// 这里可以使用更复杂的语义版本比较
+	// dev-build 不提示升级
 	if currentVersion == "" || currentVersion == "dev-build" {
 		return false
 	}
 
-	return currentVersion != config.LatestVersion
-}
-
-// GetLatestVersion 获取配置的最新版本
-func GetLatestVersion() string {
-	config := GetVersionConfig()
-	if config == nil {
-		return ""
+	systemVersion := GetSystemVersion()
+	if systemVersion == "" || systemVersion == "dev-build" {
+		return false
 	}
-	return config.LatestVersion
+
+	// 简单的版本比较：当前版本不等于系统版本时提示升级
+	return currentVersion != systemVersion
 }

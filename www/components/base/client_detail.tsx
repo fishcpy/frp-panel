@@ -31,7 +31,7 @@ export const ClientDetail = ({ clientStatus }: { clientStatus: ClientStatus }) =
     if (parts.length >= 4) {
       return {
         serverVersion: parts[1] || '',
-        latestVersion: parts[2] || '',
+        systemVersion: parts[2] || '',
         enableCheck: parts[3] === 'true',
       }
     }
@@ -41,12 +41,13 @@ export const ClientDetail = ({ clientStatus }: { clientStatus: ClientStatus }) =
   const versionInfo = parseVersionInfo()
   const clientVersion = clientStatus.version?.gitVersion || ''
 
-  // 检查是否需要升级
+  // 检查是否需要升级：客户端版本低于系统版本时提示
   const needUpgrade = versionInfo?.enableCheck &&
                       clientVersion &&
                       clientVersion !== 'dev-build' &&
-                      versionInfo.latestVersion &&
-                      clientVersion !== versionInfo.latestVersion
+                      versionInfo.systemVersion &&
+                      versionInfo.systemVersion !== 'dev-build' &&
+                      clientVersion !== versionInfo.systemVersion
 
   return (
     <Popover>
@@ -70,7 +71,7 @@ export const ClientDetail = ({ clientStatus }: { clientStatus: ClientStatus }) =
               <div className="flex items-center gap-2 text-yellow-800 dark:text-yellow-200">
                 <AlertCircle className="h-4 w-4" />
                 <span className="text-xs font-medium">
-                  {t('client.detail.upgradeAvailable', { version: versionInfo.latestVersion })}
+                  {t('client.detail.upgradeAvailable', { version: versionInfo.systemVersion })}
                 </span>
               </div>
             </div>

@@ -69,6 +69,7 @@ func getPlatformInfo(appInstance app.Application, c *gin.Context) (*pb.GetPlatfo
 
 	// 获取服务器版本信息
 	versionInfo := conf.GetVersion()
+	systemVersion := conf.GetSystemVersion()
 	versionConfig := conf.GetVersionConfig()
 
 	return &pb.GetPlatformInfoResponse{
@@ -85,6 +86,6 @@ func getPlatformInfo(appInstance app.Application, c *gin.Context) (*pb.GetPlatfo
 		MasterApiScheme:         appInstance.GetConfig().Master.APIScheme,
 		ClientRpcUrl:            clientRPCUrl,
 		ClientApiUrl:            clientAPIUrl,
-		GithubProxyUrl:          appInstance.GetConfig().Master.GithubProxyUrl + "|" + versionInfo.GitVersion + "|" + versionConfig.LatestVersion + "|" + fmt.Sprintf("%v", versionConfig.EnableUpgradeCheck),
+		GithubProxyUrl:          appInstance.GetConfig().Master.GithubProxyUrl + "|" + versionInfo.GitVersion + "|" + systemVersion + "|" + fmt.Sprintf("%v", versionConfig.EnableUpgradeCheck),
 	}, nil
 }
