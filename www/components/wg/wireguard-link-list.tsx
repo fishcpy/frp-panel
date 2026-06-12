@@ -221,7 +221,7 @@ export function WireGuardLinkList({ networkId, keyword }: { networkId?: number; 
 		placeholderData: keepPreviousData,
 	})
 
-	const rows: WireGuardLinkRow[] = (data?.wireguardLinks ?? []).map((l) => ({
+	const rows: WireGuardLinkRow[] = (data?.wireguardLinks ?? []).map((l: WireGuardLink) => ({
 		id: l.id!,
 		fromWireguardId: l.fromWireguardId!,
 		toWireguardId: l.toWireguardId!,

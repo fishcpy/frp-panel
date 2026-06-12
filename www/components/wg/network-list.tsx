@@ -43,7 +43,7 @@ export function NetworkList({ keyword, refreshToken, onChanged, onSummary }: { k
 
   const columns = React.useMemo(() => createNetworkColumns({ onChanged: handleMutated, t }), [handleMutated, t])
 
-  const rows: NetworkRow[] = (data?.networks ?? []).map((n) => ({
+  const rows: NetworkRow[] = (data?.networks ?? []).map((n: Network) => ({
     id: n.id!,
     name: n.name!,
     cidr: n.cidr!,

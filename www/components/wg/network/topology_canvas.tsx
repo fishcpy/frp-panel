@@ -252,15 +252,15 @@ function TopologyFlow({
         onPaneClick={onPaneClick}
         onNodeDragStart={(e, n) => {
           dragEvents.start(e as any, n)
-          onNodeDragStart?.(e, n)
+          onNodeDragStart?.(e as any, n)
         }}
         onNodeDrag={(e, n) => {
           dragEvents.drag(e as any, n)
-          onNodeDrag?.(e, n)
+          onNodeDrag?.(e as any, n)
         }}
         onNodeDragStop={(e, n) => {
           dragEvents.stop()
-          onNodeDragStop?.(e, n)
+          onNodeDragStop?.(e as any, n)
         }}
         connectionLineType={ConnectionLineType.Straight}
         connectionLineComponent={FloatingConnectionLine}

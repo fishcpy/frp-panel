@@ -64,7 +64,7 @@ export function PlatformSettingsForm() {
 		})
 		setInitial(form.getValues())
 		setLoading(false)
-	}, [])
+	}, [form])
 
 	const onSubmit = (values: PlatformFormValues) => {
 		const pref: FrontendPreference = {

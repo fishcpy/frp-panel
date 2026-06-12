@@ -87,13 +87,13 @@ export const FRPCFormCard: React.FC<FRPCFormCardProps> = ({
         setServerID(client?.client?.serverId)
       }
     }
-  }, [paramClientID])
+  }, [paramClientID, client?.client?.serverId])
 
   useEffect(() => {
     if (clientID && client?.client?.serverId) {
       setServerID(client?.client?.serverId)
     }
-  }, [clientID, paramClientID, client])
+  }, [clientID, paramClientID, client, client?.client?.serverId])
 
   return (
     <Card className="w-full">

@@ -94,7 +94,7 @@ export function UserProfileForm() {
         setInitial(form.getValues())
       })
       .finally(() => setLoading(false))
-  }, [])
+  }, [form])
 
   const onSubmit = async (values: UserFormValues) => {
     try {

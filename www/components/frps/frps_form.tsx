@@ -43,11 +43,11 @@ const FRPSForm: React.FC<FRPSFormProps> = ({ serverID, server, frpsUrls }) => {
 
   useEffect(() => {
     form.reset({})
-  }, [])
+  }, [form])
 
   useEffect(() => {
     form.reset(JSON.parse(server?.config || '{}') as ServerConfig)
-  }, [server])
+  }, [server, form])
 
   const onSubmit = async (values: z.infer<typeof ServerConfigZodSchema>) => {
     try {
@@ -56,8 +56,7 @@ const FRPSForm: React.FC<FRPSFormProps> = ({ serverID, server, frpsUrls }) => {
         serverIp: publicHost,
         serverId: serverID,
         frpsUrls: frpsUrls,
-        // @ts-ignore
-        config: Buffer.from(
+        config: new TextEncoder().encode(
           JSON.stringify({
             ...rest,
           } as ServerConfig),

@@ -58,7 +58,7 @@ export function useNetworkTopology(networkID?: number, spf?: boolean) {
 
     // 创建配置映射
     const configMap = new Map<number, WireGuardConfig>()
-    wgList.wireguardConfigs.forEach((cfg) => {
+    wgList.wireguardConfigs.forEach((cfg: WireGuardConfig) => {
       configMap.set(cfg.id, cfg as WireGuardConfig)
     })
 

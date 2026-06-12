@@ -39,7 +39,7 @@ export const ServerSelector: React.FC<ServerSelectorProps> = ({
     if (serverID) {
       setServer && setServer(serverList?.servers.find((server: Server) => server.id == serverID) || {frpsUrls: []})
     }
-  }, [serverID])
+  }, [serverID, serverList, setServer])
 
   return (
     <Combobox

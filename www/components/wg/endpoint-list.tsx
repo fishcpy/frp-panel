@@ -64,7 +64,7 @@ export function EndpointList({
     placeholderData: keepPreviousData,
   })
 
-  const rows: EndpointTableSchema[] = (data?.endpoints ?? []).map((e) => ({
+  const rows: EndpointTableSchema[] = (data?.endpoints ?? []).map((e: Endpoint) => ({
     id: e.id || 0,
     host: e.host || '-',
     port: e.port || 0,

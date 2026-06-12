@@ -1,11 +1,11 @@
 "use client"
 import { FitAddon } from '@xterm/addon-fit'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useXTerm } from 'react-xtermjs'
 
 const LogTerminalComponent = ({ logs, reset }: { logs: string, reset: number }) => {
   const { instance, ref } = useXTerm()
-  const fitAddon = new FitAddon()
+  const fitAddonRef = useRef(new FitAddon())
   const [prevLogs, setPrevLogs] = useState('')
   const [currentLine, setCurrentLine] = useState('')
 
@@ -41,10 +41,10 @@ const LogTerminalComponent = ({ logs, reset }: { logs: string, reset: number }) 
   useEffect(() => {
 
     // Load the fit addon
-    instance?.loadAddon(fitAddon)
+    instance?.loadAddon(fitAddonRef.current)
 
-    const handleResize = () => fitAddon.fit()
-    fitAddon.fit()
+    const handleResize = () => fitAddonRef.current.fit()
+    fitAddonRef.current.fit()
 
     instance?.writeln(currentLine)
 
@@ -57,7 +57,7 @@ const LogTerminalComponent = ({ logs, reset }: { logs: string, reset: number }) 
       resizeObserver = new ResizeObserver(() => {
         // 使用 requestAnimationFrame 来避免性能问题
         requestAnimationFrame(() => {
-          fitAddon.fit()
+          fitAddonRef.current.fit()
         })
       })
       resizeObserver.observe(ref.current)

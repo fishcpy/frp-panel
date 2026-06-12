@@ -49,7 +49,7 @@ export const WorkerList: React.FC<WorkerListProps> = ({ initialWorkers, initialT
   })
 
   const dataRows: WorkerTableSchema[] =
-    data?.workers.map((w) => ({
+    data?.workers.map((w: PbWorker) => ({
       workerId: w.workerId ?? '',
       name: w.name ?? '',
       userId: w.userId ?? 0,

@@ -89,7 +89,7 @@ export const ClientStatsCard: React.FC<ClientStatsCardProps> = ({ clientID: defa
         <Label>{t('proxy.stats.label')}</Label>
         <div className="w-full grid gap-2 grid-cols-1 overflow-x-auto">
           {clientStatsList && clientStatsList.proxyInfos.length > 0 &&
-            clientStatsList.proxyInfos.map((proxyInfo) => {
+            clientStatsList.proxyInfos.map((proxyInfo: ProxyInfo) => {
               return (
                 <ProxyStatusCard key={proxyInfo.name} proxyInfo={proxyInfo} />
               )

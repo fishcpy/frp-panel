@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { useQuery } from '@tanstack/react-query'
 import { getEndpoint, deleteEndpoint, listWireGuards } from '@/api/wg'
 import { GetEndpointRequest, DeleteEndpointRequest, ListWireGuardsRequest } from '@/lib/pb/api_wg'
+import { WireGuardConfig } from '@/lib/pb/types_wg'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import {
@@ -190,7 +191,7 @@ const EndpointDetail: React.FC = () => {
 						</CardHeader>
 						<CardContent className="space-y-2">
 							{wireguardOptions?.wireguardConfigs?.length ? (
-								wireguardOptions.wireguardConfigs.map((wg) => (
+								wireguardOptions.wireguardConfigs.map((wg: WireGuardConfig) => (
 									<div key={wg.id} className="flex items-center justify-between text-sm">
 										<Button
 											variant="link"

@@ -50,11 +50,11 @@ export function WorkerStatus({ workerId, clients = [], compact = false }: Worker
 
   // 针对每个 ingress 再次拉取状态
   const ingressStatuses = useQuery({
-    queryKey: ['getIngressStatuses', workerId, ingresses.map((i) => i.id).join(','), refetchTrigger],
+    queryKey: ['getIngressStatuses', workerId, ingresses.map((i: ProxyConfig) => i.id).join(','), refetchTrigger],
     queryFn: async () => {
       const statuses: Record<string, string> = {}
       await Promise.all(
-        ingresses.map(async (i) => {
+        ingresses.map(async (i: ProxyConfig) => {
           try {
             const ps = await getProxyConfig({
               clientId: i.clientId,
@@ -75,7 +75,7 @@ export function WorkerStatus({ workerId, clients = [], compact = false }: Worker
 
   const runningIngresses = Object.values(ingressStatuses.data || {}).filter((s) => s === 'running').length
   const Ingresses = Object.values(ingressStatuses.data || {}).filter((s) =>
-    ['', 'start', 'check failed'].includes(s),
+    ['', 'start', 'check failed'].includes(s as string),
   ).length
 
   // Overall 状态
@@ -136,7 +136,7 @@ export function WorkerStatus({ workerId, clients = [], compact = false }: Worker
     return (
       <div className="flex items-center space-x-1 rounded-md bg-muted/30 px-1 py-0.5 border border-muted">
         <div className="flex space-x-0.5">
-          {showList.map((ing) => {
+          {showList.map((ing: ProxyConfig) => {
             const status = ingressStatuses.data?.[ing.id || ''] || 'unknown'
             const bg =
               status === 'running'

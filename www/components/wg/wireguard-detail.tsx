@@ -218,7 +218,7 @@ const WireGuardDetail: React.FC = () => {
 						</CardHeader>
 						<CardContent className="flex flex-wrap gap-2">
 							{wireguard?.tags?.length ? (
-								wireguard.tags.map((tag) => (
+								wireguard.tags.map((tag: string) => (
 									<Badge key={tag} variant="secondary">
 										#{tag}
 									</Badge>

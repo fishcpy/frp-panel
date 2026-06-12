@@ -12,6 +12,7 @@ import { getWireGuardRuntime } from '@/api/wg'
 import { ClientType } from '@/lib/pb/common'
 import { GetWireGuardRuntimeInfoRequest } from '@/lib/pb/api_wg'
 import { ClientStatus_Status } from '@/lib/pb/api_master'
+import { WGPeerRuntimeInfo } from '@/lib/pb/types_wg'
 import { Badge } from '@/components/ui/badge'
 import {
   Activity,
@@ -82,13 +83,13 @@ const WGNodeComponent: React.FC<NodeComponentProps> = ({
     const ping = clientStatus?.ping
     const peerCount = peers.length
 
-    const totalTx = peers.reduce((sum, p) => sum + (Number(p.txBytes) || 0), 0)
-    const totalRx = peers.reduce((sum, p) => sum + (Number(p.rxBytes) || 0), 0)
+    const totalTx = peers.reduce((sum: number, p: WGPeerRuntimeInfo) => sum + (Number(p.txBytes) || 0), 0)
+    const totalRx = peers.reduce((sum: number, p: WGPeerRuntimeInfo) => sum + (Number(p.rxBytes) || 0), 0)
 
     const lastHandshake = peers
-      .map((p) => (p.lastHandshakeTimeSec ? Number(p.lastHandshakeTimeSec) : 0))
-      .filter((t) => t > 0)
-      .sort((a, b) => b - a)[0]
+      .map((p: WGPeerRuntimeInfo) => (p.lastHandshakeTimeSec ? Number(p.lastHandshakeTimeSec) : 0))
+      .filter((t: number) => t > 0)
+      .sort((a: number, b: number) => b - a)[0]
 
     return {
       isOnline,

@@ -4,7 +4,7 @@ import { terminalWebsocketUrl } from '@/lib/terminal'
 import { FitAddon } from '@xterm/addon-fit'
 import { CanvasAddon } from '@xterm/addon-canvas'
 import { Unicode11Addon } from '@xterm/addon-unicode11'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useXTerm } from 'react-xtermjs'
 
 export interface TerminalComponentProps {
@@ -17,7 +17,7 @@ export interface TerminalComponentProps {
 const TerminalComponent = ({ isLoading, clientStatus, reset, setStatus }: TerminalComponentProps) => {
   const { instance: terminal, ref } = useXTerm()
 
-  const fitAddon = new FitAddon()
+  const fitAddonRef = useRef(new FitAddon())
 
   useEffect(() => {
     if (terminal) {
@@ -34,14 +34,14 @@ const TerminalComponent = ({ isLoading, clientStatus, reset, setStatus }: Termin
     terminal.options.cursorStyle = 'block'
 
     terminal.loadAddon(new CanvasAddon())
-    terminal.loadAddon(fitAddon)
+    terminal.loadAddon(fitAddonRef.current)
     terminal.loadAddon(new Unicode11Addon())
     terminal.unicode.activeVersion = '11'
 
-    const handleResize = () => fitAddon.fit()
+    const handleResize = () => fitAddonRef.current.fit()
 
-    fitAddon.fit()
-    fitAddon.fit()
+    fitAddonRef.current.fit()
+    fitAddonRef.current.fit()
 
     // 监听窗口大小改变
     window.addEventListener('resize', handleResize)
@@ -52,7 +52,7 @@ const TerminalComponent = ({ isLoading, clientStatus, reset, setStatus }: Termin
       resizeObserver = new ResizeObserver(() => {
         // 使用 requestAnimationFrame 来避免性能问题
         requestAnimationFrame(() => {
-          fitAddon.fit()
+          fitAddonRef.current.fit()
         })
       })
       resizeObserver.observe(ref.current)
@@ -176,7 +176,7 @@ const TerminalComponent = ({ isLoading, clientStatus, reset, setStatus }: Termin
       }
       websocket?.close(1000)
     }
-  }, [terminal, isLoading, setStatus])
+  }, [terminal, isLoading, setStatus, clientStatus])
 
   return <div ref={ref as React.RefObject<HTMLDivElement>} style={styles.terminal()} />
 }

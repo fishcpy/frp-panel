@@ -61,7 +61,7 @@ export function WireGuardList({ clientId, networkId, keyword, onChanged }: { cli
   })
 
 
-  const rows: WireGuardTableSchema[] = (data?.wireguardConfigs ?? []).map((w) => ({
+  const rows: WireGuardTableSchema[] = (data?.wireguardConfigs ?? []).map((w: WireGuardConfig) => ({
     id: w.id!,
     interfaceName: w.interfaceName ?? '',
     networkId: w.networkId,

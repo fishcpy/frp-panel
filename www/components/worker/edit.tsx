@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next'
 
 import { getWorker, updateWorker } from '@/api/worker'
 import { UpdateWorkerRequest } from '@/lib/pb/api_client'
-import { Worker } from '@/lib/pb/common'
+import { Worker, Client } from '@/lib/pb/common'
 
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
@@ -43,8 +43,7 @@ export default function WorkerEdit() {
       setWorker(resp.worker)
       setCode(resp.worker.code ?? '')
       setTemplate(resp.worker.configTemplate ?? '')
-      // @ts-ignore
-      setDeployedClientIDs(resp.clients.map((client) => client.id).filter((id) => id !== undefined) || [])
+      setDeployedClientIDs(resp.clients.map((client: Client) => client.id).filter((id): id is string => id !== undefined) || [])
     }
   }, [resp])
 
