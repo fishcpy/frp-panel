@@ -84,14 +84,14 @@ const FRPSForm: React.FC<FRPSFormProps> = ({ serverID, server, frpsUrls }) => {
       {serverID && (
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 px-0.5">
-            <HostField name="publicHost" label={t('server.form.public_host')} placeholder='8.8.8.8' control={form.control} defaultValue={server?.ip}/>
-            <PortField name="bindPort" label={t('server.form.bind_port')} control={form.control} />
-            <HostField name="bindAddr" label={t('server.form.bind_addr')} control={form.control} />
-            <HostField name="proxyBindAddr" label={t('server.form.proxy_bind_addr')} control={form.control} />
-            <PortField name="vhostHTTPPort" label={t('server.form.vhost_http_port')} control={form.control} />
-            <HostField name="subDomainHost" label={t('server.form.subdomain_host')} control={form.control} />
-            <PortField name="quicBindPort" label={t('server.form.quic_bind_port')} control={form.control} />
-            <PortField name="kcpBindPort" label={t('server.form.kcp_bind_port')} control={form.control} />
+            <HostField name="publicHost" label={t('server.form.public_host')} placeholder='8.8.8.8' control={form.control as Control<any>} defaultValue={server?.ip}/>
+            <PortField name="bindPort" label={t('server.form.bind_port')} control={form.control as Control<any>} />
+            <HostField name="bindAddr" label={t('server.form.bind_addr')} control={form.control as Control<any>} />
+            <HostField name="proxyBindAddr" label={t('server.form.proxy_bind_addr')} control={form.control as Control<any>} />
+            <PortField name="vhostHTTPPort" label={t('server.form.vhost_http_port')} control={form.control as Control<any>} />
+            <HostField name="subDomainHost" label={t('server.form.subdomain_host')} control={form.control as Control<any>} />
+            <PortField name="quicBindPort" label={t('server.form.quic_bind_port')} control={form.control as Control<any>} />
+            <PortField name="kcpBindPort" label={t('server.form.kcp_bind_port')} control={form.control as Control<any>} />
             <Button type="submit">{t('common.submit')}</Button>
           </form>
         </Form>
