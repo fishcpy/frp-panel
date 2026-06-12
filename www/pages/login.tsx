@@ -4,6 +4,7 @@ import { LoginComponent } from '@/components/login'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from '@/components/language-switcher'
+import { ThemeSwitcher } from '@/components/theme-switcher'
 import Link from 'next/link'
 
 export default function LoginPage() {
@@ -14,7 +15,8 @@ export default function LoginPage() {
     <main className={`min-h-screen`}>
       <Providers>
         {/* Fixed Language Switcher */}
-        <div className="fixed top-4 right-4 z-50">
+        <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
+          <ThemeSwitcher />
           <LanguageSwitcher />
         </div>
 

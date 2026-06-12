@@ -8,6 +8,12 @@
       "repo": "VaalaCat/frp-panel"
     }
   },
+  "theme": {
+    "toggle": "Changer de thème",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
   "selector": {
     "common": {
       "placeholder": "Veuillez sélectionner...",

@@ -8,6 +8,12 @@
       "repo": "VaalaCat/frp-panel"
     }
   },
+  "theme": {
+    "toggle": "切換主題",
+    "light": "淺色",
+    "dark": "深色",
+    "system": "跟隨系統"
+  },
   "selector": {
     "common": {
       "placeholder": "請選擇...",
