@@ -205,11 +205,11 @@ export const TCPProxyForm: React.FC<ProxyFormProps> = ({
               </div>
             </div>
           )}
-        <PortField name="localPort" control={form.control} label={t('proxy.form.local_port') + '*'} />
-        <HostField name="localIP" control={form.control} label={t('proxy.form.local_ip') + '*'} />
+        <PortField name="localPort" control={form.control as Control<any>} label={t('proxy.form.local_port') + '*'} />
+        <HostField name="localIP" control={form.control as Control<any>} label={t('proxy.form.local_ip') + '*'} />
         <PortField
           name="remotePort"
-          control={form.control}
+          control={form.control as Control<any>}
           label={t('proxy.form.remote_port') + '*'}
           placeholder="4321"
         />
@@ -303,8 +303,8 @@ export const STCPProxyForm: React.FC<ProxyFormProps> = ({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 px-0.5">
-        <PortField name="localPort" control={form.control} label={t('proxy.form.local_port') + '*'} />
-        <HostField name="localIP" control={form.control} label={t('proxy.form.local_ip') + '*'} />
+        <PortField name="localPort" control={form.control as Control<any>} label={t('proxy.form.local_port') + '*'} />
+        <HostField name="localIP" control={form.control as Control<any>} label={t('proxy.form.local_ip') + '*'} />
         <SwitchWithLabel
           name="usePlugin"
           defaultValue={usePlugin}
@@ -319,7 +319,7 @@ export const STCPProxyForm: React.FC<ProxyFormProps> = ({
         {usePlugin ? (
           <PluginConfigForm defaultPluginConfig={pluginConfig} setPluginConfig={setPluginConfig} />
         ) : null}
-        <SecretStringField name="secretKey" control={form.control} label={t('proxy.form.secret_key') + '*'} />
+        <SecretStringField name="secretKey" control={form.control as Control<any>} label={t('proxy.form.secret_key') + '*'} />
         <Button type="submit" disabled={isSaveDisabled} variant={'outline'} className="w-full">
           <YesIcon className={`mr-2 h-4 w-4 ${isSaveDisabled ? '' : 'hidden'}`}></YesIcon>
           {t('proxy.form.save_changes')}
@@ -415,9 +415,9 @@ export const UDPProxyForm: React.FC<ProxyFormProps> = ({
               </div>
             </div>
           )}
-        <PortField name="localPort" control={form.control} label={t('proxy.form.local_port') + '*'} />
-        <HostField name="localIP" control={form.control} label={t('proxy.form.local_ip') + '*'} />
-        <PortField name="remotePort" control={form.control} label={t('proxy.form.remote_port') + '*'} />
+        <PortField name="localPort" control={form.control as Control<any>} label={t('proxy.form.local_port') + '*'} />
+        <HostField name="localIP" control={form.control as Control<any>} label={t('proxy.form.local_ip') + '*'} />
+        <PortField name="remotePort" control={form.control as Control<any>} label={t('proxy.form.remote_port') + '*'} />
         <SwitchWithLabel
           name="usePlugin"
           defaultValue={usePlugin}
@@ -547,17 +547,17 @@ export const HTTPProxyForm: React.FC<ProxyFormProps> = ({
               </div>
             </div>
           )}
-        <PortField name="localPort" control={form.control} label={t('proxy.form.local_port') + '*'} />
-        <HostField name="localIP" control={form.control} label={t('proxy.form.local_ip') + '*'} />
+        <PortField name="localPort" control={form.control as Control<any>} label={t('proxy.form.local_port') + '*'} />
+        <HostField name="localIP" control={form.control as Control<any>} label={t('proxy.form.local_ip') + '*'} />
         <StringField
           name="subdomain"
-          control={form.control}
+          control={form.control as Control<any>}
           label={t('proxy.form.subdomain')}
           placeholder={'your_sub_domain'}
         />
         <StringArrayField
           name="customDomains"
-          control={form.control}
+          control={form.control as Control<any>}
           label={t('proxy.form.custom_domains')}
           placeholder={'your.example.com'}
         />
@@ -586,7 +586,7 @@ export const HTTPProxyForm: React.FC<ProxyFormProps> = ({
           <div className="p-4 space-y-4 border rounded-md">
             <StringArrayField
               name="locations"
-              control={form.control}
+              control={form.control as Control<any>}
               label={t('proxy.form.route')}
               placeholder={'/path'}
             />
@@ -600,13 +600,13 @@ export const HTTPProxyForm: React.FC<ProxyFormProps> = ({
               <div className="p-4 space-y-4 border rounded-md">
                 <StringField
                   name="httpUser"
-                  control={form.control}
+                  control={form.control as Control<any>}
                   label={t('proxy.form.username')}
                   placeholder={'username'}
                 />
                 <StringField
                   name="httpPassword"
-                  control={form.control}
+                  control={form.control as Control<any>}
                   label={t('proxy.form.password')}
                   placeholder={'password'}
                 />
