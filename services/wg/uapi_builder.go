@@ -6,8 +6,8 @@ import (
 	"net"
 	"strings"
 
-	"github.com/VaalaCat/frp-panel/defs"
-	"github.com/VaalaCat/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/defs"
+	"github.com/fishcpy/frp-panel/pb"
 	"golang.zx2c4.com/wireguard/wgctrl/wgtypes"
 )
 

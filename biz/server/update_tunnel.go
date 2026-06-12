@@ -4,11 +4,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/VaalaCat/frp-panel/pb"
-	"github.com/VaalaCat/frp-panel/services/app"
-	"github.com/VaalaCat/frp-panel/services/server"
-	"github.com/VaalaCat/frp-panel/utils"
-	"github.com/VaalaCat/frp-panel/utils/logger"
+	"github.com/fishcpy/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/services/server"
+	"github.com/fishcpy/frp-panel/utils"
+	"github.com/fishcpy/frp-panel/utils/logger"
 )
 
 func UpdateFrpsHander(ctx *app.Context, req *pb.UpdateFRPSRequest) (*pb.UpdateFRPSResponse, error) {

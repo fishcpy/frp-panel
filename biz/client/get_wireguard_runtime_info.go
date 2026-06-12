@@ -3,8 +3,8 @@ package client
 import (
 	"fmt"
 
-	"github.com/VaalaCat/frp-panel/pb"
-	"github.com/VaalaCat/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/services/app"
 )
 
 func GetWireGuardRuntimeInfo(ctx *app.Context, req *pb.GetWireGuardRuntimeInfoRequest) (*pb.GetWireGuardRuntimeInfoResponse, error) {

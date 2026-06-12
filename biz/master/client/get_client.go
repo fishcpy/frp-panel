@@ -3,12 +3,12 @@ package client
 import (
 	"strings"
 
-	"github.com/VaalaCat/frp-panel/common"
-	"github.com/VaalaCat/frp-panel/models"
-	"github.com/VaalaCat/frp-panel/pb"
-	"github.com/VaalaCat/frp-panel/services/app"
-	"github.com/VaalaCat/frp-panel/services/dao"
-	"github.com/VaalaCat/frp-panel/utils/logger"
+	"github.com/fishcpy/frp-panel/common"
+	"github.com/fishcpy/frp-panel/models"
+	"github.com/fishcpy/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/services/dao"
+	"github.com/fishcpy/frp-panel/utils/logger"
 	"github.com/samber/lo"
 )
 

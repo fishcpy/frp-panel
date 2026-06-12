@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/VaalaCat/frp-panel/defs"
-	"github.com/VaalaCat/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/defs"
+	"github.com/fishcpy/frp-panel/pb"
 	"github.com/gin-gonic/gin"
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/reflect/protoreflect"

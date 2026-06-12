@@ -10,9 +10,9 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/VaalaCat/frp-panel/defs"
-	"github.com/VaalaCat/frp-panel/utils"
-	"github.com/VaalaCat/frp-panel/utils/logger"
+	"github.com/fishcpy/frp-panel/defs"
+	"github.com/fishcpy/frp-panel/utils"
+	"github.com/fishcpy/frp-panel/utils/logger"
 	v1 "github.com/fatedier/frp/pkg/config/v1"
 )
 

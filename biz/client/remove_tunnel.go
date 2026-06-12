@@ -4,9 +4,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/VaalaCat/frp-panel/pb"
-	"github.com/VaalaCat/frp-panel/services/app"
-	"github.com/VaalaCat/frp-panel/utils/logger"
+	"github.com/fishcpy/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/utils/logger"
 )
 
 func RemoveFrpcHandler(ctx *app.Context, req *pb.RemoveFRPCRequest) (*pb.RemoveFRPCResponse, error) {

@@ -4,7 +4,7 @@ import (
 	"net/netip"
 	"testing"
 
-	"github.com/VaalaCat/frp-panel/models"
+	"github.com/fishcpy/frp-panel/models"
 	"github.com/stretchr/testify/assert"
 )
 

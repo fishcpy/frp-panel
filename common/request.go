@@ -3,7 +3,7 @@ package common
 import (
 	"fmt"
 
-	"github.com/VaalaCat/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/pb"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"google.golang.org/protobuf/encoding/protojson"

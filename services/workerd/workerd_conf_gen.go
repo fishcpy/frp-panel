@@ -6,9 +6,9 @@ import (
 	"html/template"
 	"path/filepath"
 
-	"github.com/VaalaCat/frp-panel/defs"
-	"github.com/VaalaCat/frp-panel/pb"
-	"github.com/VaalaCat/frp-panel/utils"
+	"github.com/fishcpy/frp-panel/defs"
+	"github.com/fishcpy/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/utils"
 	"github.com/samber/lo"
 )
 

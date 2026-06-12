@@ -4,8 +4,8 @@ import (
 	"math"
 	"time"
 
-	"github.com/VaalaCat/frp-panel/models"
-	"github.com/VaalaCat/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/models"
+	"github.com/fishcpy/frp-panel/services/app"
 )
 
 // RoutingPolicy 决定边权重的计算方式。

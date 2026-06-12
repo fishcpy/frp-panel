@@ -3,20 +3,20 @@ package master
 import (
 	"embed"
 
-	"github.com/VaalaCat/frp-panel/biz/master/auth"
-	"github.com/VaalaCat/frp-panel/biz/master/client"
-	"github.com/VaalaCat/frp-panel/biz/master/platform"
-	"github.com/VaalaCat/frp-panel/biz/master/proxy"
-	"github.com/VaalaCat/frp-panel/biz/master/server"
-	"github.com/VaalaCat/frp-panel/biz/master/shell"
-	"github.com/VaalaCat/frp-panel/biz/master/streamlog"
-	"github.com/VaalaCat/frp-panel/biz/master/user"
-	"github.com/VaalaCat/frp-panel/biz/master/worker"
-	"github.com/VaalaCat/frp-panel/middleware"
-	"github.com/VaalaCat/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/biz/master/auth"
+	"github.com/fishcpy/frp-panel/biz/master/client"
+	"github.com/fishcpy/frp-panel/biz/master/platform"
+	"github.com/fishcpy/frp-panel/biz/master/proxy"
+	"github.com/fishcpy/frp-panel/biz/master/server"
+	"github.com/fishcpy/frp-panel/biz/master/shell"
+	"github.com/fishcpy/frp-panel/biz/master/streamlog"
+	"github.com/fishcpy/frp-panel/biz/master/user"
+	"github.com/fishcpy/frp-panel/biz/master/worker"
+	"github.com/fishcpy/frp-panel/middleware"
+	"github.com/fishcpy/frp-panel/services/app"
 	"github.com/gin-gonic/gin"
 
-	wgHandler "github.com/VaalaCat/frp-panel/biz/master/wg"
+	wgHandler "github.com/fishcpy/frp-panel/biz/master/wg"
 )
 
 func NewRouter(fs embed.FS, appInstance app.Application) *gin.Engine {

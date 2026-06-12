@@ -3,8 +3,8 @@ package client
 import (
 	"errors"
 
-	"github.com/VaalaCat/frp-panel/pb"
-	"github.com/VaalaCat/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/services/app"
 )
 
 func RestartWireGuard(ctx *app.Context, req *pb.RestartWireGuardRequest) (*pb.RestartWireGuardResponse, error) {

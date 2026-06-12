@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"runtime/debug"
 
-	"github.com/VaalaCat/frp-panel/conf"
-	"github.com/VaalaCat/frp-panel/pb"
-	"github.com/VaalaCat/frp-panel/services/app"
-	"github.com/VaalaCat/frp-panel/utils/logger"
+	"github.com/fishcpy/frp-panel/conf"
+	"github.com/fishcpy/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/utils/logger"
 	"google.golang.org/protobuf/proto"
 )
 

@@ -3,8 +3,8 @@ package wg
 import (
 	"testing"
 
-	"github.com/VaalaCat/frp-panel/defs"
-	"github.com/VaalaCat/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/defs"
+	"github.com/fishcpy/frp-panel/pb"
 )
 
 func TestMergeConnectablePeersFromAdj_AddsMissingPeerWithEmptyAllowedIPs(t *testing.T) {

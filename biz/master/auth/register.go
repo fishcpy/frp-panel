@@ -3,12 +3,12 @@ package auth
 import (
 	"fmt"
 
-	"github.com/VaalaCat/frp-panel/defs"
-	"github.com/VaalaCat/frp-panel/models"
-	"github.com/VaalaCat/frp-panel/pb"
-	"github.com/VaalaCat/frp-panel/services/app"
-	"github.com/VaalaCat/frp-panel/services/dao"
-	"github.com/VaalaCat/frp-panel/utils"
+	"github.com/fishcpy/frp-panel/defs"
+	"github.com/fishcpy/frp-panel/models"
+	"github.com/fishcpy/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/services/dao"
+	"github.com/fishcpy/frp-panel/utils"
 	"github.com/google/uuid"
 )
 

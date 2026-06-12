@@ -8,8 +8,8 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	"github.com/VaalaCat/frp-panel/defs"
-	"github.com/VaalaCat/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/defs"
+	"github.com/fishcpy/frp-panel/pb"
 )
 
 // peer 预连接/常驻补齐逻辑

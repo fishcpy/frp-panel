@@ -3,8 +3,8 @@ package cache
 import (
 	"context"
 
-	"github.com/VaalaCat/frp-panel/conf"
-	"github.com/VaalaCat/frp-panel/utils/logger"
+	"github.com/fishcpy/frp-panel/conf"
+	"github.com/fishcpy/frp-panel/utils/logger"
 	"github.com/coocood/freecache"
 )
 

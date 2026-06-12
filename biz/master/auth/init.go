@@ -3,11 +3,11 @@ package auth
 import (
 	"context"
 
-	"github.com/VaalaCat/frp-panel/models"
-	"github.com/VaalaCat/frp-panel/services/app"
-	"github.com/VaalaCat/frp-panel/services/cache"
-	"github.com/VaalaCat/frp-panel/services/dao"
-	"github.com/VaalaCat/frp-panel/utils/logger"
+	"github.com/fishcpy/frp-panel/models"
+	"github.com/fishcpy/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/services/cache"
+	"github.com/fishcpy/frp-panel/services/dao"
+	"github.com/fishcpy/frp-panel/utils/logger"
 	"github.com/samber/lo"
 )
 

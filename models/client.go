@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/VaalaCat/frp-panel/pb"
-	"github.com/VaalaCat/frp-panel/utils"
+	"github.com/fishcpy/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/utils"
 	v1 "github.com/fatedier/frp/pkg/config/v1"
 	"github.com/samber/lo"
 	"gorm.io/gorm"

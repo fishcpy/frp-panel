@@ -7,9 +7,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/VaalaCat/frp-panel/defs"
-	"github.com/VaalaCat/frp-panel/utils"
-	"github.com/VaalaCat/frp-panel/utils/logger"
+	"github.com/fishcpy/frp-panel/defs"
+	"github.com/fishcpy/frp-panel/utils"
+	"github.com/fishcpy/frp-panel/utils/logger"
 	"github.com/gin-gonic/gin"
 	"github.com/ilyakaznacheev/cleanenv"
 	"github.com/joho/godotenv"

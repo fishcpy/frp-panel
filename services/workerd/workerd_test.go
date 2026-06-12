@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/VaalaCat/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/pb"
 	"github.com/sourcegraph/conc"
 )
 

@@ -9,9 +9,9 @@ import (
 	"crypto/x509"
 	"encoding/pem"
 
-	"github.com/VaalaCat/frp-panel/models"
-	"github.com/VaalaCat/frp-panel/utils"
-	"github.com/VaalaCat/frp-panel/utils/logger"
+	"github.com/fishcpy/frp-panel/models"
+	"github.com/fishcpy/frp-panel/utils"
+	"github.com/fishcpy/frp-panel/utils/logger"
 )
 
 type CertQuery interface {

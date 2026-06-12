@@ -3,9 +3,9 @@ package client
 import (
 	"errors"
 
-	"github.com/VaalaCat/frp-panel/defs"
-	"github.com/VaalaCat/frp-panel/pb"
-	"github.com/VaalaCat/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/defs"
+	"github.com/fishcpy/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/services/app"
 	"github.com/samber/lo"
 	"github.com/sirupsen/logrus"
 )

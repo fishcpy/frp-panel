@@ -30,7 +30,9 @@ jobs:
       - name: npm install and build
         run: |
           cd www
-          npm install && npm install -g pnpm
+          npm install -g pnpm
+          pnpm install
+          pnpm build
 
       - name: Install dependencies
         run: |

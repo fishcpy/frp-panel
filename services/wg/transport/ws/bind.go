@@ -10,8 +10,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/VaalaCat/frp-panel/defs"
-	"github.com/VaalaCat/frp-panel/services/app"
+	"github.com/fishcpy/frp-panel/defs"
+	"github.com/fishcpy/frp-panel/services/app"
 	"github.com/gorilla/websocket"
 	"golang.zx2c4.com/wireguard/conn"
 )

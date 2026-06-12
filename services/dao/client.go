@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/VaalaCat/frp-panel/models"
+	"github.com/fishcpy/frp-panel/models"
 	"github.com/samber/lo"
 	"gorm.io/gorm"
 )

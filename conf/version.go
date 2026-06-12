@@ -6,7 +6,7 @@ import (
 	"html/template"
 	"runtime"
 
-	"github.com/VaalaCat/frp-panel/pb"
+	"github.com/fishcpy/frp-panel/pb"
 )
 
 var (
