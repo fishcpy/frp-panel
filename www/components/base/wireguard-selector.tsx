@@ -5,6 +5,7 @@ import { keepPreviousData, useQuery } from '@tanstack/react-query'
 import { listWireGuards } from '@/api/wg'
 import { Combobox } from './combobox'
 import { useTranslation } from 'react-i18next'
+import { WireGuard } from '@/lib/pb/types_wg'
 
 export interface WireGuardSelectorProps {
   clientID?: string
@@ -33,14 +34,14 @@ export const WireGuardSelector: React.FC<WireGuardSelectorProps> = ({ clientID, 
     placeholderData: keepPreviousData,
   })
 
-  const items = (data?.wireguardConfigs ?? []).map((w) => ({
+  const items = (data?.wireguardConfigs ?? []).map((w: WireGuard) => ({
     value: `${w.id ?? ''}`,
     label: `${w.clientId ?? ''} ${w.localAddress ? `(${w.localAddress})` : ''}`.trim(),
   }))
 
   useEffect(() => {
     if (wireguardID && data?.wireguardConfigs) {
-      const target = data.wireguardConfigs.find((w) => w.id === wireguardID)
+      const target = data.wireguardConfigs.find((w: WireGuard) => w.id === wireguardID)
       if (target) {
         setValueKey(String(target.id))
       }

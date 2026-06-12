@@ -19,9 +19,9 @@ export const ProxySelector: React.FC<ProxySelectorProps> = ({
 
     return (
         <Combobox
-            dataList={proxyNames.map((name) => ({ 
-                value: name, 
-                label: name 
+            dataList={proxyNames.map((name: string) => ({
+                value: name,
+                label: name
             }))}
             value={proxyName}
             setValue={setProxyname}

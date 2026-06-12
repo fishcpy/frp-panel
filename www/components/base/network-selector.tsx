@@ -5,6 +5,7 @@ import { keepPreviousData, useQuery } from '@tanstack/react-query'
 import { listNetworks } from '@/api/wg'
 import { Combobox } from './combobox'
 import { useTranslation } from 'react-i18next'
+import { WireGuardNetwork } from '@/lib/pb/types_wg'
 
 export interface NetworkSelectorProps {
   networkID?: number
@@ -27,7 +28,7 @@ export const NetworkSelector: React.FC<NetworkSelectorProps> = ({ networkID, set
     placeholderData: keepPreviousData,
   })
 
-  const items = (data?.networks ?? []).map((n) => ({ value: String(n.id), label: `${n.name} (${n.cidr})` }))
+  const items = (data?.networks ?? []).map((n: WireGuardNetwork) => ({ value: String(n.id), label: `${n.name} (${n.cidr})` }))
 
   return (
     <Combobox

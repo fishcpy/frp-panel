@@ -37,7 +37,7 @@ export const ServerSelector: React.FC<ServerSelectorProps> = ({
 
   useEffect(() => {
     if (serverID) {
-      setServer && setServer(serverList?.servers.find((server) => server.id == serverID) || {frpsUrls: []})
+      setServer && setServer(serverList?.servers.find((server: Server) => server.id == serverID) || {frpsUrls: []})
     }
   }, [serverID])
 
@@ -46,7 +46,7 @@ export const ServerSelector: React.FC<ServerSelectorProps> = ({
       placeholder={t('selector.server.placeholder')}
       value={serverID}
       setValue={handleServerChange}
-      dataList={serverList?.servers.map((server) => ({
+      dataList={serverList?.servers.map((server: Server) => ({
         value: server.id || '',
         label: server.id || ''
       })) || []}
