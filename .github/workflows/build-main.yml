@@ -59,7 +59,7 @@ jobs:
         run: echo "short_sha=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
 
       - name: Install ko
-        run: go install github.com/ko-build/ko@latest
+        run: go install github.com/google/ko@latest
 
       - name: Build and push image with ko
         env:
