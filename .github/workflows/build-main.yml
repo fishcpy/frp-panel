@@ -52,7 +52,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_PAT }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Get short commit hash
         id: hash
@@ -64,7 +64,9 @@ jobs:
       - name: Build and push image with ko
         env:
           KO_DOCKER_REPO: ghcr.io/${{ github.repository_owner }}/frp-panel
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | ko login ghcr.io --username ${{ github.actor }} --password-stdin
           mv .ko.workerd.yaml .ko.yaml
           ko build ./cmd/frpp --sbom=none --bare -t ${{ steps.hash.outputs.short_sha }}
           ko build ./cmd/frpp --sbom=none --bare -t latest
