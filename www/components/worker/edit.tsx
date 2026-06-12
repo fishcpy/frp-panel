@@ -43,7 +43,7 @@ export default function WorkerEdit() {
       setWorker(resp.worker)
       setCode(resp.worker.code ?? '')
       setTemplate(resp.worker.configTemplate ?? '')
-      setDeployedClientIDs(resp.clients.map((client: Client) => client.id).filter((id): id is string => id !== undefined) || [])
+      setDeployedClientIDs(resp.clients.map((client: Client) => client.id).filter((id: string | undefined): id is string => id !== undefined) || [])
     }
   }, [resp])
 
