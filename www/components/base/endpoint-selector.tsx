@@ -5,7 +5,7 @@ import { keepPreviousData, useQuery } from '@tanstack/react-query'
 import { listEndpoints } from '@/api/wg'
 import { Combobox } from './combobox'
 import { useTranslation } from 'react-i18next'
-import { WireGuardEndpoint } from '@/lib/pb/types_wg'
+import { Endpoint } from '@/lib/pb/types_wg'
 
 export interface EndpointSelectorProps {
   clientID: string
@@ -31,7 +31,7 @@ export const EndpointSelector: React.FC<EndpointSelectorProps> = ({ clientID, en
     enabled: !!clientID,
   })
 
-  const items = (data?.endpoints ?? []).map((e: WireGuardEndpoint) => ({ value: String(e.id), label: `${e.uri ? e.uri : `${e.host}:${e.port}`}` }))
+  const items = (data?.endpoints ?? []).map((e: Endpoint) => ({ value: String(e.id), label: `${e.uri ? e.uri : `${e.host}:${e.port}`}` }))
 
   return (
     <Combobox
