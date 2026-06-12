@@ -70,7 +70,7 @@ export const ServerList: React.FC<ServerListProps> = ({ Servers, Keyword, Trigge
 
   const table = useReactTable({
     data:
-      dataQuery.data?.servers.map((server) => {
+      dataQuery.data?.servers.map((server: Server) => {
         return {
           id: server.id == undefined ? '' : server.id,
           status: server.config == undefined || server.config == '' ? 'invalid' : 'valid',

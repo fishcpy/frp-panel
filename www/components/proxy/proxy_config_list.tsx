@@ -91,7 +91,7 @@ export const ProxyConfigList: React.FC<ProxyConfigListProps> = ({
 
   const table = useReactTable({
     data:
-      dataQuery.data?.proxyConfigs.map((proxy_config) => {
+      dataQuery.data?.proxyConfigs.map((proxy_config: ProxyConfig) => {
         return {
           id: proxy_config.id || '',
           name: proxy_config.name || '',
