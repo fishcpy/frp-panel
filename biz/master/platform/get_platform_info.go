@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/VaalaCat/frp-panel/common"
+	"github.com/VaalaCat/frp-panel/conf"
 	"github.com/VaalaCat/frp-panel/defs"
 	"github.com/VaalaCat/frp-panel/pb"
 	"github.com/VaalaCat/frp-panel/services/app"
@@ -66,6 +67,10 @@ func getPlatformInfo(appInstance app.Application, c *gin.Context) (*pb.GetPlatfo
 		clientAPIUrl = fmt.Sprintf("%s://%s:%d", appInstance.GetConfig().Master.APIScheme, appInstance.GetConfig().Master.RPCHost, appInstance.GetConfig().Master.APIPort)
 	}
 
+	// 获取服务器版本信息
+	versionInfo := conf.GetVersion()
+	versionConfig := conf.GetVersionConfig()
+
 	return &pb.GetPlatformInfoResponse{
 		Status:                  &pb.Status{Code: pb.RespCode_RESP_CODE_SUCCESS, Message: "ok"},
 		TotalClientCount:        int32(totalClients),
@@ -80,6 +85,6 @@ func getPlatformInfo(appInstance app.Application, c *gin.Context) (*pb.GetPlatfo
 		MasterApiScheme:         appInstance.GetConfig().Master.APIScheme,
 		ClientRpcUrl:            clientRPCUrl,
 		ClientApiUrl:            clientAPIUrl,
-		GithubProxyUrl:          appInstance.GetConfig().App.GithubProxyUrl,
+		GithubProxyUrl:          appInstance.GetConfig().Master.GithubProxyUrl + "|" + versionInfo.GitVersion + "|" + versionConfig.LatestVersion + "|" + fmt.Sprintf("%v", versionConfig.EnableUpgradeCheck),
 	}, nil
 }

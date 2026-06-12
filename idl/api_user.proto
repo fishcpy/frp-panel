@@ -36,4 +36,7 @@ message GetPlatformInfoResponse {
   string client_rpc_url = 12;
   string client_api_url = 13;
   string github_proxy_url = 14;
+  string server_version = 15;
+  string latest_version = 16;
+  bool enable_upgrade_check = 17;
 }

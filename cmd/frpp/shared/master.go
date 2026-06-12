@@ -46,6 +46,13 @@ func runMaster(param runMasterParam) {
 	cache.InitCache(param.AppInstance.GetConfig())
 	auth.InitAuth(param.AppInstance)
 
+	// 初始化版本配置
+	if err := conf.InitVersionConfig(); err != nil {
+		logger.Logger(param.Ctx).Warnf("failed to load version config: %v, using defaults", err)
+	} else {
+		logger.Logger(param.Ctx).Infof("version config loaded successfully")
+	}
+
 	param.TaskManager.AddCronTask("0 0 3 * * *", proxy.CollectDailyStats, param.AppInstance)
 	defer param.TaskManager.Stop()
 
