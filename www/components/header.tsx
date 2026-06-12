@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { getPlatformInfo } from '@/api/platform'
 import { useTranslation } from 'react-i18next'
 import { LanguageSwitcher } from './language-switcher'
+import { ThemeSwitcher } from './theme-switcher'
 
 export const Header = ({ title }: { title?: string }) => {
   const router = useRouter()
@@ -37,7 +38,10 @@ export const Header = ({ title }: { title?: string }) => {
     <div className="flex w-full justify-between items-center gap-2">
       {title && <p className="font-bold">{title}</p>}
       {!title && <p></p>}
-      <LanguageSwitcher />
+      <div className="flex items-center gap-2">
+        <ThemeSwitcher />
+        <LanguageSwitcher />
+      </div>
     </div>
   )
 }
