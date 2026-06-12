@@ -72,7 +72,7 @@ export const ClientList: React.FC<ClientListProps> = ({ Clients, Keyword, Trigge
 
   const table = useReactTable({
     data:
-      dataQuery.data?.clients.map((client) => {
+      dataQuery.data?.clients.map((client: Client) => {
         return {
           id: client.id == undefined ? '' : client.id,
           status: ClientConfigured(client) ? 'valid' : 'invalid',
