@@ -59,7 +59,7 @@ export const AgentSelector: React.FC<AgentSelectorProps> = ({ value, onChange, p
 
 	// 转换为统一的 Agent 格式
 	const clientAgents: Agent[] = React.useMemo(() => {
-		return (clientList?.clients || []).map((client) => ({
+		return (clientList?.clients || []).map((client: Client) => ({
 			id: `client-${client.id}`,
 			label: client.id || '',
 			type: 'client' as AgentType,
@@ -68,7 +68,7 @@ export const AgentSelector: React.FC<AgentSelectorProps> = ({ value, onChange, p
 	}, [clientList])
 
 	const serverAgents: Agent[] = React.useMemo(() => {
-		return (serverList?.servers || []).map((server) => ({
+		return (serverList?.servers || []).map((server: Server) => ({
 			id: `server-${server.id}`,
 			label: server.id || '',
 			type: 'server' as AgentType,
