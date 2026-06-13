@@ -1,4 +1,3 @@
-import { Providers } from '@/components/providers'
 import { RootLayout } from '@/components/layout'
 import { Header } from '@/components/header'
 import { WorkerList } from '@/components/worker/worker_list'
@@ -12,12 +11,10 @@ export default function WorkerEditPage() {
   const [triggerSearch, setTriggerSearch] = useState('')
 
   return (
-    <Providers>
       <RootLayout mainHeader={<Header />}>
         <div className="w-full flex flex-col gap-4">
           <WorkerEdit />
         </div>
       </RootLayout>
-    </Providers>
   )
 }

@@ -1,4 +1,3 @@
-import { Providers } from '@/components/providers'
 import { RootLayout } from '@/components/layout'
 import { Header } from '@/components/header'
 import { ProxyConfigList } from '@/components/proxy/proxy_config_list'
@@ -19,7 +18,6 @@ export default function Proxies() {
   }
 
   return (
-    <Providers>
       <RootLayout mainHeader={<Header />}>
         <div className="w-full">
           <div className="flex flex-1 flex-col">
@@ -35,6 +33,5 @@ export default function Proxies() {
           </div>
         </div>
       </RootLayout>
-    </Providers>
   )
 }

@@ -1,6 +1,5 @@
 "use client"
 
-import { Providers } from '@/components/providers'
 import { RootLayout } from '@/components/layout'
 import { Header } from '@/components/header'
 import { useEffect, useState } from 'react'
@@ -99,7 +98,6 @@ export default function ConsolePage() {
   }
 
   return (
-    <Providers>
       <RootLayout mainHeader={<Header />}>
         <Card className="w-full h-[calc(100dvh_-_80px)] flex flex-col">
           <CardContent className="p-3 flex-1 flex flex-col gap-2">
@@ -199,6 +197,5 @@ export default function ConsolePage() {
           </CardContent>
         </Card>
       </RootLayout>
-    </Providers>
   )
 }

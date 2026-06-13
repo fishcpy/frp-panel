@@ -1,4 +1,3 @@
-import { Providers } from '@/components/providers'
 import { useEffect, useState } from 'react'
 import { ClientType } from '@/lib/pb/common'
 import dynamic from 'next/dynamic'
@@ -55,7 +54,6 @@ export default function TerminalPage() {
   }, [clientID, enabled]);
 
   return (
-    <Providers>
       <div className='flex-col h-[100dvh] flex w-full relative'>
         {/* <TerminalAlerts clientID={clientID||''} status={"error"} onAlertChange={() => { }} /> */}
         <TerminalComponentProps
@@ -68,6 +66,5 @@ export default function TerminalPage() {
           } as ClientStatus}
           reset={clear} />
       </div>
-    </Providers>
   )
 }

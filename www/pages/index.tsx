@@ -1,4 +1,3 @@
-import { Providers } from '@/components/providers'
 import { RootLayout } from '@/components/layout'
 import { Header } from '@/components/header'
 import PlatformInfo from '@/components/platforminfo'
@@ -17,7 +16,6 @@ import { useTranslation } from 'react-i18next'
 export default function Home() {
   const { t } = useTranslation()
   return (
-    <Providers>
       <RootLayout mainHeader={<Header />}>
         <div className="space-y-6">
           <PlatformInfo />
@@ -37,6 +35,5 @@ export default function Home() {
           </Card> */}
         </div>
       </RootLayout>
-    </Providers>
   )
 }

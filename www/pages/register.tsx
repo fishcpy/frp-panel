@@ -1,4 +1,3 @@
-import { Providers } from '@/components/providers'
 import { TbBuildingTunnel } from 'react-icons/tb'
 import { RegisterComponent } from '@/components/register'
 import { useRouter } from 'next/router'
@@ -13,7 +12,6 @@ export default function RegisterPage() {
   
   return (
     <main className={`min-h-screen`}>
-      <Providers>
         {/* Fixed Language Switcher */}
         <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
           <ThemeSwitcher />
@@ -89,7 +87,6 @@ export default function RegisterPage() {
             </div>
           </div>
         </div>
-      </Providers>
     </main>
   )
 }

@@ -1,4 +1,3 @@
-import { Providers } from '@/components/providers'
 import { RootLayout } from '@/components/layout'
 import { ClientList } from '@/components/frpc/client_list'
 import { Header } from '@/components/header'
@@ -12,7 +11,6 @@ export default function ClientListPage() {
   const [triggerSearch, setTriggerSearch] = useState('')
 
   return (
-    <Providers>
       <RootLayout mainHeader={<Header />}>
         <div className="w-full">
           <div className="flex flex-1 flex-col">
@@ -25,6 +23,5 @@ export default function ClientListPage() {
           </div>
         </div>
       </RootLayout>
-    </Providers>
   )
 }

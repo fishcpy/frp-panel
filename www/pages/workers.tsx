@@ -1,4 +1,3 @@
-import { Providers } from '@/components/providers'
 import { RootLayout } from '@/components/layout'
 import { Header } from '@/components/header'
 import { WorkerList } from '@/components/worker/worker_list'
@@ -11,7 +10,6 @@ export default function WorkerListPage() {
   const [triggerSearch, setTriggerSearch] = useState('')
 
   return (
-    <Providers>
       <RootLayout mainHeader={<Header />}>
         <div className="w-full flex flex-col gap-4">
           <div className="flex items-center gap-2">
@@ -21,6 +19,5 @@ export default function WorkerListPage() {
           <WorkerList initialWorkers={[]} initialTotal={0} triggerRefetch={triggerSearch} keyword={keyword} />
         </div>
       </RootLayout>
-    </Providers>
   )
 }

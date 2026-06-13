@@ -1,4 +1,3 @@
-import { Providers } from '@/components/providers'
 import { TbBuildingTunnel } from 'react-icons/tb'
 import { LoginComponent } from '@/components/login'
 import { useRouter } from 'next/router'
@@ -13,7 +12,6 @@ export default function LoginPage() {
   
   return (
     <main className={`min-h-screen`}>
-      <Providers>
         {/* Fixed Language Switcher */}
         <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
           <ThemeSwitcher />
@@ -89,7 +87,6 @@ export default function LoginPage() {
             </div>
           </div>
         </div>
-      </Providers>
     </main>
   )
 }

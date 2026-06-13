@@ -1,4 +1,3 @@
-// import { Providers } from '@/components/providers'
 // import { RootLayout } from '@/components/layout'
 // import { Header } from '@/components/header'
 // import { Button } from '@/components/ui/button'
@@ -40,7 +39,6 @@ export default function Test() {
   // }
   return (
     <></>
-    // <Providers>
     //   <RootLayout mainHeader={<Header />}>
     //     <div className="w-full">
     //       <div className="flex flex-1 flex-col">
@@ -52,6 +50,5 @@ export default function Test() {
     //       </div>
     //     </div>
     //   </RootLayout>
-    // </Providers>
   )
 }

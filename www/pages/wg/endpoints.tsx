@@ -1,6 +1,5 @@
 'use client'
 
-import { Providers } from '@/components/providers'
 import { RootLayout } from '@/components/layout'
 import { Header } from '@/components/header'
 import { useTranslation } from 'react-i18next'
@@ -14,7 +13,6 @@ export default function EndpointsPage() {
 	const [trigger, setTrigger] = useState('')
 
 	return (
-		<Providers>
 			<RootLayout mainHeader={<Header />}>
 				<div className="w-full flex flex-col gap-4">
 					<div className="flex flex-wrap items-center gap-2">
@@ -26,7 +24,6 @@ export default function EndpointsPage() {
 					<EndpointList keyword={keyword} />
 				</div>
 			</RootLayout>
-		</Providers>
 	)
 }
 
