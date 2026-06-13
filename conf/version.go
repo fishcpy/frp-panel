@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"html/template"
 	"runtime"
+	"time"
 
 	"github.com/fishcpy/frp-panel/pb"
 )
@@ -60,11 +61,18 @@ func GetVersion() *VersionInfo {
 		version = config.Version
 	}
 
+	// 如果 buildDate 未通过 ldflags 注入（开发环境），使用当前 UTC+8 时间
+	date := buildDate
+	if date == "" || date == "1970-01-01T00:00:00Z" {
+		loc, _ := time.LoadLocation("Asia/Shanghai")
+		date = time.Now().In(loc).Format("2006-01-02T15:04:05-07:00")
+	}
+
 	return &VersionInfo{
 		GitVersion: version,
 		GitCommit:  gitCommit,
 		GitBranch:  gitBranch,
-		BuildDate:  buildDate,
+		BuildDate:  date,
 		GoVersion:  runtime.Version(),
 		Compiler:   runtime.Compiler,
 		Platform:   fmt.Sprintf("%s/%s", runtime.GOOS, runtime.GOARCH),
