@@ -27,3 +27,4 @@ pnpm-global
 TODOs.md
 *.timestamp-*.mjs
 .zed
+.claude

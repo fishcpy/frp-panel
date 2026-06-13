@@ -61,11 +61,10 @@ func GetVersion() *VersionInfo {
 		version = config.Version
 	}
 
-	// 如果 buildDate 未通过 ldflags 注入（开发环境），使用当前 UTC+8 时间
+	// 如果 buildDate 未通过 ldflags 注入（开发环境），使用当前 UTC 时间
 	date := buildDate
 	if date == "" || date == "1970-01-01T00:00:00Z" {
-		loc, _ := time.LoadLocation("Asia/Shanghai")
-		date = time.Now().In(loc).Format("2006-01-02T15:04:05-07:00")
+		date = time.Now().UTC().Format(time.RFC3339)
 	}
 
 	return &VersionInfo{
