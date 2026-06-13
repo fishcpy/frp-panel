@@ -408,6 +408,13 @@ func (w *wireGuard) PatchPeers(newPeers []*defs.WireGuardPeerConfig) (*app.WireG
 }
 
 func (w *wireGuard) GetWGRuntimeInfo() (*pb.WGDeviceRuntimeInfo, error) {
+	w.RLock()
+	defer w.RUnlock()
+
+	if w.wgDevice == nil {
+		return nil, errors.New("WireGuard device is not initialized")
+	}
+
 	runningInfo, err := w.wgDevice.IpcGet()
 	if err != nil {
 		return nil, errors.Join(errors.New("get WG running info error"), err)

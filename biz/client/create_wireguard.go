@@ -22,6 +22,10 @@ func CreateWireGuard(ctx *app.Context, req *pb.CreateWireGuardRequest) (*pb.Crea
 	err = wgSvc.Start()
 	if err != nil {
 		log.WithError(err).Errorf("start wireguard service failed")
+		// Remove the failed service from the manager to prevent it from being used
+		if removeErr := ctx.GetApp().GetWireGuardManager().RemoveService(cfg.GetInterfaceName()); removeErr != nil {
+			log.WithError(removeErr).Warnf("failed to remove failed wireguard service")
+		}
 		return nil, err
 	}
 

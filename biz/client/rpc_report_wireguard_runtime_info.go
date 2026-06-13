@@ -20,7 +20,7 @@ func ReportWireGuardRuntimeInfo(appInstance app.Application, clientID, clientSec
 	for _, wg := range wgs {
 		runtimeInfo, err := wg.GetWGRuntimeInfo()
 		if err != nil {
-			log.WithError(err).Errorf("failed to get wireguard runtime info")
+			log.WithError(err).Warnf("failed to get wireguard runtime info, skipping")
 			continue
 		}
 
