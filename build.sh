@@ -16,7 +16,7 @@ BINTYPE="all"
 ARCH="all"
 
 # build variables
-BUILD_DATE="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+BUILD_DATE="$(TZ='Asia/Shanghai' date +'%Y-%m-%dT%H:%M:%S+08:00')"
 GIT_COMMIT="$(git rev-parse HEAD)"
 VERSION="$(git describe --tags --abbrev=0 | tr -d '\n')"
 GIT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"

@@ -27,11 +27,7 @@ export function RootLayout({
     <>
       <AppSidebar footer={sidebarFooter}>{sidebarItems}</AppSidebar>
       <SidebarInset>
-        <div className={cn("relative flex flex-1 flex-col overflow-hidden transition-all",
-          isMobile && "w-[100dvw]",
-          !isMobile && open && "w-[calc(100dvw-var(--sidebar-width))]",
-          !isMobile && !open && "w-[calc(100dvw-var(--sidebar-width-icon))]"
-        )}>
+        <div className="relative flex flex-1 flex-col overflow-hidden min-w-0">
           <header className="flex flex-row h-12 items-center gap-2 w-full pr-4">
             <div className="flex flex-row items-center gap-2 px-4">
               <SidebarTrigger className="-ml-1" />
