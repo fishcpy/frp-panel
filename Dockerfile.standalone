@@ -55,7 +55,7 @@ RUN CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} \
 FROM --platform=$TARGETPLATFORM alpine:latest
 WORKDIR /app
 # RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
-RUN apk update --no-cache && apk add --no-cache tzdata git && mkdir -p /data
+RUN apk update --no-cache && apk add --no-cache tzdata git iptables ip6tables && mkdir -p /data
 COPY --from=builder /app/frp-panel .
 
 # web port

@@ -122,6 +122,8 @@ func newIPT(isIPv6 bool) (*iptables.IPTables, error) {
 	}
 	ipt, err := iptables.NewWithProtocol(proto)
 	if err != nil {
+		// Check if iptables is simply not available (e.g., not installed in container)
+		// In this case, return a special error that can be handled gracefully
 		return nil, errors.Join(fmt.Errorf("create iptables handler (ipv6=%v)", isIPv6), err)
 	}
 	return ipt, nil

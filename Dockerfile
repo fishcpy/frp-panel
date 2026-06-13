@@ -3,7 +3,7 @@ FROM alpine
 ARG ARCH
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories && \
-	apk update --no-cache && apk --no-cache add curl bash sqlite
+	apk update --no-cache && apk --no-cache add curl bash sqlite iptables ip6tables
 
 ENV TZ Asia/Shanghai
 
