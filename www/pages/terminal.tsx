@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { ClientType } from '@/lib/pb/common'
 import dynamic from 'next/dynamic'
 import { ClientStatus } from '@/lib/pb/api_master'
-import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 const TerminalComponentProps = dynamic(() => import('@/components/base/read-write-xterm'), {
   ssr: false
@@ -15,9 +15,9 @@ export default function TerminalPage() {
   const [clientType, setClientType] = useState<ClientType>(ClientType.FRPC)
   const [status, setStatus] = useState<"loading" | "success" | "error" | undefined>()
 
-  const searchParams = useSearchParams()
-  const paramClientID = searchParams.get('clientID')
-  const paramClientType = searchParams.get('clientType')
+  const router = useRouter()
+  const paramClientID = router.query.clientID as string | undefined
+  const paramClientType = router.query.clientType as string | undefined
 
   useEffect(() => {
     if (paramClientID) {

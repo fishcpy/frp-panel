@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 import { useQuery } from '@tanstack/react-query'
-import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { getProxyStatsByClientID } from '@/api/stats'
 import { ProxyTrafficPieChart } from '../charts/proxy-traffic-pie-chart'
 import { ProxyTrafficOverview } from '../charts/proxy-traffic-overview'
@@ -25,8 +25,8 @@ export const ClientStatsCard: React.FC<ClientStatsCardProps> = ({ clientID: defa
   const [status, setStatus] = useState<"loading" | "success" | "error" | undefined>()
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
-  const searchParams = useSearchParams()
-  const paramClientID = searchParams.get('clientID')
+  const router = useRouter()
+  const paramClientID = router.query.clientID as string | undefined
 
   const { data: clientStatsList, refetch: refetchClientStats } = useQuery({
     queryKey: ['clientStats', clientID],

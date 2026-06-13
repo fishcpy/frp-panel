@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Switch } from '@/components/ui/switch'
 import { FRPCEditor } from './frpc_editor'
 import { FRPCForm } from './frpc_form'
-import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { ClientConfig } from '@/types/client'
 import { TypedProxyConfig } from '@/types/proxy'
 import { ClientSelector } from '../base/client-selector'
@@ -32,8 +32,8 @@ export const FRPCFormCard: React.FC<FRPCFormCardProps> = ({
   const [advanceMode, setAdvanceMode] = useState<boolean>(false)
   const [clientID, setClientID] = useState<string | undefined>()
   const [serverID, setServerID] = useState<string | undefined>()
-  const searchParams = useSearchParams()
-  const paramClientID = searchParams.get('clientID')
+  const router = useRouter()
+  const paramClientID = router.query.clientID as string | undefined
   const [clientProxyConfigs, setClientProxyConfigs] = useState<TypedProxyConfig[]>([])
   const [frpsUrl, setFrpsUrl] = useState<string | undefined>()
   const [selectedServer, setSelectedServer] = useState<Server | undefined>(undefined)

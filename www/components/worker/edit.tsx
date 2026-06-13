@@ -1,8 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { useQuery, useMutation } from '@tanstack/react-query'
 import { toast } from 'sonner'
 import { useTranslation } from 'react-i18next'
@@ -21,8 +20,7 @@ import { WorkerTemplateEditor } from './template_editor'
 
 export default function WorkerEdit() {
   const router = useRouter()
-  const params = useSearchParams()
-  const workerId = params.get('workerId')!
+  const workerId = router.query.workerId as string
   const { t } = useTranslation()
 
   // 本地状态

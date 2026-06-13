@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { useQuery } from '@tanstack/react-query'
 import { getEndpoint, deleteEndpoint, listWireGuards } from '@/api/wg'
@@ -25,11 +25,10 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const EndpointDetail: React.FC = () => {
-	const params = useSearchParams()
 	const router = useRouter()
 	const { t } = useTranslation()
 
-	const idParam = params.get('id')
+	const idParam = router.query.id as string | undefined
 	const endpointId = idParam ? Number(idParam) : undefined
 	const [openEdit, setOpenEdit] = React.useState(false)
 

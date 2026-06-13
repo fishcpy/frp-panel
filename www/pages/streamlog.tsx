@@ -12,7 +12,7 @@ import dynamic from 'next/dynamic'
 import { BaseSelector } from '@/components/base/selector'
 import { ServerSelector } from '@/components/base/server-selector'
 import LoadingCircle from '@/components/base/status'
-import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 // import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -34,9 +34,9 @@ export default function StreamLogPage() {
   const [status, setStatus] = useState<'loading' | 'success' | 'error' | undefined>()
   const [pkgs, setPkgs] = useState<string[]>([])
 
-  const searchParams = useSearchParams()
-  const paramClientID = searchParams.get('clientID')
-  const paramClientType = searchParams.get('clientType')
+  const router = useRouter()
+  const paramClientID = router.query.clientID as string | undefined
+  const paramClientType = router.query.clientType as string | undefined
 
   useEffect(() => {
     if (paramClientID) {

@@ -19,6 +19,7 @@ export default function NetworksPage() {
 	const [createOpen, setCreateOpen] = useState(false)
 	const [summary, setSummary] = useState<{ total: number }>({ total: 0 })
 	return (
+		<>
 			<RootLayout mainHeader={<Header />}>
 				<div className="w-full flex flex-col gap-4">
 					<div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
@@ -64,6 +65,7 @@ export default function NetworksPage() {
 					setTrigger(makeRandomTrigger())
 				}}
 			/>
+		</>
 	)
 }
 

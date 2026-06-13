@@ -13,7 +13,7 @@ import { $platformInfo, $userInfo } from "@/store/user"
 import { useStore } from "@nanostores/react"
 import { TbBuildingTunnel } from "react-icons/tb"
 import { RegisterAndLogin } from "./header"
-import { useRouter } from "next/navigation"
+import { useRouter } from "next/router"
 import { useQuery } from "@tanstack/react-query"
 import { getPlatformInfo } from "@/api/platform"
 import { getNavItems } from '@/config/nav'

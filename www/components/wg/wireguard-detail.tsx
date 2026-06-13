@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { getWireGuard, deleteWireGuard, getWireGuardRuntime, restartWireGuard } from '@/api/wg'
@@ -28,12 +28,11 @@ import { Badge } from '@/components/ui/badge'
 import WireGuardRuntimeCard from './wireguard-runtime-card'
 
 const WireGuardDetail: React.FC = () => {
-	const params = useSearchParams()
 	const router = useRouter()
 	const { t } = useTranslation()
 	const queryClient = useQueryClient()
 
-	const idParam = params.get('id')
+	const idParam = router.query.id as string | undefined
 	const wireguardId = idParam ? Number(idParam) : undefined
 
 	const [openEdit, setOpenEdit] = React.useState(false)

@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { useSearchParams, useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import { useQuery } from '@tanstack/react-query'
 import { getNetwork, deleteNetwork } from '@/api/wg'
@@ -31,10 +31,9 @@ import { Skeleton } from '@/components/ui/skeleton'
 import NetworkEditDialog from './network-edit-dialog'
 
 const NetworkDetail: React.FC = () => {
-	const params = useSearchParams()
 	const router = useRouter()
 	const { t } = useTranslation()
-	const networkIdParam = params.get('networkId')
+	const networkIdParam = router.query.networkId as string | undefined
 	const networkId = networkIdParam ? Number(networkIdParam) : undefined
 
 	const [openEdit, setOpenEdit] = React.useState(false)

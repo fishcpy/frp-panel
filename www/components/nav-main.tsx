@@ -1,7 +1,7 @@
 "use client"
 
 import { ChevronRight, type LucideIcon } from "lucide-react"
-import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 import {
   Collapsible,

@@ -12,7 +12,7 @@ import { BaseSelector } from '@/components/base/selector'
 import { ServerSelector } from '@/components/base/server-selector'
 import LoadingCircle from '@/components/base/status'
 import { ClientStatus } from '@/lib/pb/api_master'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card'
 import { PlayCircle, StopCircle, RefreshCcw, Eraser, ExternalLink } from 'lucide-react'
@@ -32,9 +32,8 @@ export default function ConsolePage() {
   const [clientType, setClientType] = useState<ClientType>(ClientType.FRPC)
   const [status, setStatus] = useState<"loading" | "success" | "error" | undefined>()
 
-  const searchParams = useSearchParams()
-  const paramClientID = searchParams.get('clientID')
-  const paramClientType = searchParams.get('clientType')
+  const paramClientID = router.query.clientID as string | undefined
+  const paramClientType = router.query.clientType as string | undefined
 
   useEffect(() => {
     if (paramClientID) {

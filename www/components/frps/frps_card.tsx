@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Switch } from '@/components/ui/switch'
 import { FRPSEditor } from './frps_editor'
 import FRPSForm from './frps_form'
-import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 import { ServerSelector } from '../base/server-selector'
 import { useTranslation } from 'react-i18next';
 import StringListInput from '../base/list-input'
@@ -17,8 +17,8 @@ export interface FRPSFormCardProps {
 export const FRPSFormCard: React.FC<FRPSFormCardProps> = ({ serverID: defaultServerID }: FRPSFormCardProps = {}) => {
   const [advanceMode, setAdvanceMode] = useState<boolean>(false)
   const [serverID, setServerID] = useState<string | undefined>()
-  const searchParams = useSearchParams()
-  const paramServerID = searchParams.get('serverID')
+  const router = useRouter()
+  const paramServerID = router.query.serverID as string | undefined
   const [frpsUrls, setFrpsUrls] = useState<string[]>([])
 
   const { data: server, refetch: refetchServer } = useQuery({
